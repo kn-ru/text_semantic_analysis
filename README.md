@@ -1,6 +1,6 @@
 # Text Semantic Analysis
-Проект представляет собой веб сервер, реализующий функцию предсказания эмоционально окраски новости на русском языке.
-Обуччающий датасет был загружен с [соревнования](https://www.kaggle.com/competitions/sentiment-analysis-in-russian/overview)
+Проект представляет собой веб сервер, реализующий функцию предсказания эмоциональной окраски новости на русском языке.
+Обучающий датасет был загружен с [соревнования](https://www.kaggle.com/competitions/sentiment-analysis-in-russian/overview)
 
 # Зависимости
 - устанавливаем python3, pip3, python3-venv

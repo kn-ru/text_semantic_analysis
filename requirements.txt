@@ -1,0 +1,5 @@
+nltk==3.7
+numpy
+pydantic==1.9.0
+scikit_learn==1.1.2
+starlette==0.16.0

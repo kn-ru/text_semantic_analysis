@@ -13,8 +13,8 @@ from nltk import word_tokenize
 import numpy as np
 import re
 import pickle
-from utils import *
 
+from utils import get_emotion
 
 app = FastAPI(middleware=[Middleware(CORSMiddleware, allow_origins=["*"])], redoc_url="/documentation")
 
@@ -25,6 +25,8 @@ app = FastAPI(middleware=[Middleware(CORSMiddleware, allow_origins=["*"])], redo
 ############
     
 async def recognize(request: Request):
+
+
 
     #### ШАБЛОН ОТВЕТА
     result = {

@@ -12,20 +12,17 @@ import uuid
 from nltk import word_tokenize
 import numpy as np
 import re
+import json
 import pickle
+from sklearn.feature_extraction.text import TfidfVectorizer, TfidfTransformer
+transformer = TfidfTransformer()
+loaded_vec = TfidfVectorizer(decode_error="replace",vocabulary=json.load(open("./vocabulary.json", "r")))
 
-def ru_token(string):
-    """russian tokenize based on nltk.word_tokenize. only russian letter remaind."""
-    return [i for i in word_tokenize(string) if re.match(r'[\u0400-\u04ffа́]+$', i)]
 
-with open('tfidf.pickle', 'rb') as f:
-    tfidf = pickle.load(f)
-
-with open('softmax.pickle', 'rb') as f:
+with open('./softmax.pickle', 'rb') as f:
     softmax = pickle.load(f)
 
-def get_emotion(news):
-    text = [news]
-    sample = tfidf.transform(text)
+def get_emotion(text):
+    sample = transformer.fit_transform(loaded_vec.fit_transform([text]))
     result = softmax.predict(sample)[0]
     return result
